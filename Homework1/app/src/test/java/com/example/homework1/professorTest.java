@@ -1,20 +1,32 @@
 package com.example.homework1;
 
+import android.provider.MediaStore;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import junit.framework.TestCase;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.junit.Test;
 
+import javax.crypto.Mac;
+
 import Education.professor;
+import kotlin.random.Random;
 
 
 public class professorTest extends TestCase {
 
     professor defProfessor;
     professor MacEvoy;
+    professor OtherMacEvoy;
 
+    String [] names = {"MacEvoy", "El Poobah Grande", "J.D. Salinger" , "Jim"};
+    int i = 0;
     public void setUp() throws Exception {
         defProfessor = new professor();
         List<String> MacClasses = new ArrayList<String>(Arrays.asList("Interpretive Dance",
@@ -22,7 +34,7 @@ public class professorTest extends TestCase {
 
         MacEvoy = new professor("Warren MacEvoy","Computer Science", 16 ,
                 MacClasses, 45.37, "Mustard Yellow", true);
-        defProfessor.addClass("Philosophy Of Nothingness");
+        //defProfessor.addClass("Philosophy Of Nothingness");
     }
 
     @Test
@@ -40,6 +52,7 @@ public class professorTest extends TestCase {
 
     @Test
     public void testAddGetClasses(){
+        defProfessor.addClass("Philosophy Of Nothingness");
         MacEvoy.addClass("Java-Kotlin");
         MacEvoy.addClass("Swan Appreciation");
         assertEquals("Philosophy Of Nothingness", defProfessor.getAClass(0));
@@ -48,7 +61,7 @@ public class professorTest extends TestCase {
 
     @Test
     public void testNumberOfClasses() {
-
+        defProfessor.addClass("Philosophy Of Nothingness");
         assertEquals(1, defProfessor.numberOfClasses());
         assertEquals(2, MacEvoy.numberOfClasses());
         MacEvoy.addClass("Swan Appreciation");
@@ -78,5 +91,58 @@ public class professorTest extends TestCase {
     public void testMathSkills(){
         assertEquals((90+17)%49,defProfessor.AddInt(40,50));
         assertEquals(17 + 98, MacEvoy.AddInt(17,98));
+    }
+
+    //@test equals ?
+
+
+
+    @Test
+    public void testHash(){
+
+    }
+//    @Test
+//    public void swanMap(){
+//        Map<Swan,Long> barCodes = new TreeMap<Swan,Long>();
+//        barCodes.put(getSwan("grey"),123_234_234_234_242L);
+//        barCodes.put(getSwan("white"),33L);
+//        assertEquals(null, barCodes.get(getSwan("black")));
+//        assertEquals(new Long(123_234_234_234_242L), barCodes.get(getSwan("grey")));
+//    }
+
+    @Test
+    public void testProfessorMap(){
+        Map<professor, String> namedProfessors = new TreeMap<>();
+        namedProfessors.put(MacEvoy, "Warren");
+        namedProfessors.put(defProfessor, "Spanko");
+        assertFalse(defProfessor.equals(MacEvoy));
+        assertTrue(defProfessor.equals(defProfessor));
+        assertEquals("Spanko", namedProfessors.get(defProfessor));
+        assertEquals("Warren",namedProfessors.get(MacEvoy));
+        assertEquals(null, namedProfessors.get(new professor("jim", professor.DEFAULT_SUBJECT,
+                professor.DEFAULT_AGE, professor.DEFAULT_CLASSES, professor.DEFAULT_HEIGHT,
+                professor.DEFAULT_FAVCOLOR, false)));
+        assertEquals(2, namedProfessors.size());
+    }
+    @Test
+    public void testMapProfessor(){
+        Map<String, professor> profMap = new TreeMap<>();
+        profMap.put("Warren", MacEvoy);
+        profMap.put("jobloopo", defProfessor);
+        assertEquals(MacEvoy, profMap.get("Warren"));
+        assertEquals(defProfessor, profMap.get("jobloopo"));
+        assertEquals(null, profMap.get("AnkleSpanker"));
+    }
+
+    @Test
+    public void testProfessorSet(){
+        Set<professor> profSet = new HashSet<>();
+        profSet.add(MacEvoy);
+        profSet.add(defProfessor);
+        assertEquals(2, profSet.size());
+        assertEquals(true, profSet.contains(MacEvoy));
+        assertFalse(profSet.contains(new professor("jim", professor.DEFAULT_SUBJECT,
+                professor.DEFAULT_AGE, professor.DEFAULT_CLASSES, professor.DEFAULT_HEIGHT,
+                professor.DEFAULT_FAVCOLOR, false)));
     }
 }
