@@ -93,7 +93,6 @@ public class professorTest extends TestCase {
         assertEquals(17 + 98, MacEvoy.AddInt(17,98));
     }
 
-    //@test equals ?
 
 
 
@@ -101,14 +100,6 @@ public class professorTest extends TestCase {
     public void testHash(){
 
     }
-//    @Test
-//    public void swanMap(){
-//        Map<Swan,Long> barCodes = new TreeMap<Swan,Long>();
-//        barCodes.put(getSwan("grey"),123_234_234_234_242L);
-//        barCodes.put(getSwan("white"),33L);
-//        assertEquals(null, barCodes.get(getSwan("black")));
-//        assertEquals(new Long(123_234_234_234_242L), barCodes.get(getSwan("grey")));
-//    }
 
     @Test
     public void testProfessorMap(){
