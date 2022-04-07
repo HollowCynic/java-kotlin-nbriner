@@ -16,3 +16,7 @@ Test cases pass:
 Stream function test that returns the least worked dough:
 
 ![thread_t2](https://user-images.githubusercontent.com/68364120/162288072-21273720-b9d6-449f-a85e-120603512338.PNG)
+
+Path to code:
+
+java-kotlin-nbriner/thread_homework/app/src/main/java/com/example/thread_homework/
