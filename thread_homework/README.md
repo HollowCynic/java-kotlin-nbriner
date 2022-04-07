@@ -6,10 +6,13 @@ This threaded application has bakers grabbing dough (shared resource) from the b
 Sample output:
 
 ![thread_o1](https://user-images.githubusercontent.com/68364120/162288039-2462eaf8-6137-466b-81e3-418e56bafec7.PNG)
+
 ![thread_o2](https://user-images.githubusercontent.com/68364120/162288049-21460417-ed94-440f-9e3a-aadb7b8d340a.PNG)
 
 Test cases pass:
+
 ![thread_t1](https://user-images.githubusercontent.com/68364120/162288063-629b679f-7db6-4dd2-ad10-ec9a24f8b47b.PNG)
 
 Stream function test that returns the least worked dough:
+
 ![thread_t2](https://user-images.githubusercontent.com/68364120/162288072-21273720-b9d6-449f-a85e-120603512338.PNG)
