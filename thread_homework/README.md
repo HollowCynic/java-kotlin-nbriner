@@ -3,6 +3,10 @@ Nathan Briner - Thread Homework Assignment
 
 This threaded application has bakers grabbing dough (shared resource) from the bakery's inventory. Next the bakers work the dough. When the dough has been worked enough they will bake the dough and add it to the baked dough collection in the inventory. When the baked dough inventory is equal to the starting unbaked dough inventory the bakers will close their thread. There is a stream function that in the inventory class that will return the least folded piece of dough, so one could change the behavior of the bakers to prioritized unworked dough.
 
+Path to code:
+
+java-kotlin-nbriner/thread_homework/app/src/main/java/com/example/thread_homework/
+
 Sample output:
 
 ![thread_o1](https://user-images.githubusercontent.com/68364120/162288039-2462eaf8-6137-466b-81e3-418e56bafec7.PNG)
@@ -17,6 +21,4 @@ Stream function test that returns the least worked dough:
 
 ![thread_t2](https://user-images.githubusercontent.com/68364120/162288072-21273720-b9d6-449f-a85e-120603512338.PNG)
 
-Path to code:
 
-java-kotlin-nbriner/thread_homework/app/src/main/java/com/example/thread_homework/
